@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melly Chandra Wardani — Profil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2333;
+    --ink-soft:#4a5266;
+    --paper:#eef1ec;
+    --card:#ffffff;
+    --navy:#1c2b45;
+    --navy-deep:#101a2c;
+    --teal:#3c7a68;
+    --ochre:#b8752f;
+    --line:#d7dad2;
+    --line-soft:#e4e6df;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; margin:0;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+
+  /* background ledger grid texture */
+  .ledger-bg{
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px);
+    background-size: 100% 42px;
+  }
+
+  a{color:inherit;}
+
+  /* ===== NAV ===== */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(238,241,236,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1040px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px;
+    overflow-x:auto;
+  }
+  .nav-brand{font-size:14px; font-weight:600; letter-spacing:0.02em; white-space:nowrap;}
+  .nav-links{display:flex; gap:22px; white-space:nowrap;}
+  .nav-links a{
+    font-size:12px; text-transform:uppercase; letter-spacing:0.08em;
+    text-decoration:none; color:var(--ink-soft);
+    font-family:'JetBrains Mono',monospace;
+    padding-bottom:2px; border-bottom:1px solid transparent;
+    transition:border-color .2s, color .2s;
+  }
+  .nav-links a:hover{color:var(--ink); border-color:var(--ochre);}
+
+  /* ===== HEADER / DOCUMENT CARD ===== */
+  header.doc{
+    background:var(--navy);
+    background-image:
+      radial-gradient(circle at 85% -10%, rgba(255,255,255,0.06), transparent 55%);
+    color:#eef1ec;
+    padding:64px 24px 48px;
+  }
+  .doc-inner{max-width:1040px; margin:0 auto; position:relative;}
+  .stamp{
+    position:absolute; top:0; right:0;
+    width:96px; height:96px;
+    border:1.5px dashed rgba(238,241,236,0.4);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    transform:rotate(-8deg);
+    flex-shrink:0;
+  }
+  .stamp span{
+    font-family:'Space Grotesk',sans-serif; font-weight:700;
+    font-size:22px; letter-spacing:0.03em; color:#eef1ec;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace; font-size:12px;
+    letter-spacing:0.15em; text-transform:uppercase;
+    color:var(--ochre); margin-bottom:14px; display:block;
+  }
+  h1.name{font-size:clamp(32px,5vw,52px); font-weight:700; line-height:1.1; max-width:640px;}
+  .role{font-size:17px; color:#c7cedb; margin-top:10px; max-width:520px;}
+
+  .field-rows{
+    margin-top:36px; display:grid; grid-template-columns:repeat(3,1fr); gap:0;
+    border-top:1px solid rgba(238,241,236,0.18);
+    max-width:760px;
+  }
+  .field{
+    padding:16px 20px 16px 0; border-right:1px solid rgba(238,241,236,0.18);
+  }
+  .field:last-child{border-right:none;}
+  .field-label{
+    font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.12em;
+    text-transform:uppercase; color:#8b95a8; display:block; margin-bottom:6px;
+  }
+  .field-value{font-size:14px; color:#eef1ec; font-weight:500;}
+  .field-value a{text-decoration:none; border-bottom:1px solid rgba(238,241,236,0.35);}
+  .field-value a:hover{border-color:var(--ochre); color:#f2d9bc;}
+
+  .cta-row{margin-top:32px; display:flex; gap:12px; flex-wrap:wrap;}
+  .btn{
+    font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.06em;
+    text-transform:uppercase; padding:12px 20px; border-radius:2px;
+    text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, background .2s ease;
+  }
+  .btn-primary{background:var(--ochre); color:#1c1508;}
+  .btn-primary:hover{background:#c9843c; transform:translateY(-1px);}
+  .btn-ghost{border:1px solid rgba(238,241,236,0.35); color:#eef1ec;}
+  .btn-ghost:hover{border-color:var(--ochre); color:#f2d9bc; transform:translateY(-1px);}
+
+  /* ===== SECTION SHELL ===== */
+  main{max-width:1040px; margin:0 auto; padding:0 24px;}
+  section{padding:64px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-head{display:flex; align-items:baseline; gap:14px; margin-bottom:32px;}
+  .section-tag{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--teal); border:1px solid var(--teal);
+    padding:4px 9px; border-radius:2px; flex-shrink:0;
+  }
+  .section-title{font-size:26px; font-weight:600;}
+
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ===== ABOUT ===== */
+  .about-text{font-size:16.5px; color:var(--ink-soft); max-width:680px;}
+  .about-text strong{color:var(--ink); font-weight:600;}
+
+  /* ===== SKILLS ===== */
+  .skill-groups{display:grid; grid-template-columns:1fr 1fr; gap:32px;}
+  .skill-group h3{font-size:14px; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft); margin-bottom:16px; font-weight:600;}
+  .chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    background:var(--card); border:1px solid var(--line); padding:8px 13px;
+    border-radius:3px; font-size:13.5px; color:var(--ink);
+    transition:border-color .18s, transform .18s;
+  }
+  .chip:hover{border-color:var(--teal); transform:translateY(-2px);}
+
+  /* ===== EXPERIENCE TIMELINE ===== */
+  .timeline{position:relative; padding-left:52px;}
+  .timeline::before{
+    content:""; position:absolute; left:17px; top:6px; bottom:6px; width:1px;
+    background:var(--line);
+  }
+  .entry{position:relative; margin-bottom:40px;}
+  .entry:last-child{margin-bottom:0;}
+  .entry-num{
+    position:absolute; left:-52px; top:0; width:34px; height:34px;
+    background:var(--navy); color:#eef1ec; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600;
+  }
+  .entry-card{
+    background:var(--card); border:1px solid var(--line); border-radius:4px;
+    padding:22px 24px; transition:border-color .2s, box-shadow .2s;
+  }
+  .entry-card:hover{border-color:var(--teal); box-shadow:0 6px 20px rgba(28,43,69,0.06);}
+  .entry-top{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px; margin-bottom:6px;}
+  .entry-role{font-size:17px; font-weight:600;}
+  .entry-org{font-size:14px; color:var(--teal); font-weight:500; margin-top:2px;}
+  .entry-date{
+    font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--ink-soft);
+    background:var(--paper); padding:4px 9px; border-radius:2px; white-space:nowrap;
+  }
+  .entry-list{margin:12px 0 0; padding-left:18px; color:var(--ink-soft); font-size:14.5px;}
+  .entry-list li{margin-bottom:6px;}
+  .entry-list li:last-child{margin-bottom:0;}
+
+  /* ===== EDUCATION ===== */
+  .edu-card{
+    background:var(--card); border:1px solid var(--line); border-radius:4px;
+    padding:26px 28px; display:flex; justify-content:space-between; align-items:flex-start;
+    flex-wrap:wrap; gap:12px;
+    border-left:3px solid var(--ochre);
+  }
+  .edu-degree{font-size:18px; font-weight:600;}
+  .edu-inst{font-size:14.5px; color:var(--ink-soft); margin-top:4px;}
+  .edu-year{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--ochre); font-weight:600;}
+
+  /* ===== FOOTER ===== */
+  footer{
+    background:var(--navy-deep); color:#c7cedb; padding:48px 24px 32px; margin-top:20px;
+  }
+  .footer-inner{max-width:1040px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;}
+  .footer-stamp{display:flex; align-items:center; gap:12px;}
+  .footer-stamp .mini-stamp{
+    width:38px; height:38px; border:1px dashed rgba(238,241,236,0.4); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700;
+    font-family:'Space Grotesk',sans-serif; transform:rotate(-8deg);
+  }
+  .footer-text{font-size:12.5px; color:#8b95a8;}
+  .footer-links{display:flex; gap:18px; font-size:13px;}
+  .footer-links a{text-decoration:none; color:#c7cedb; border-bottom:1px solid transparent;}
+  .footer-links a:hover{border-color:var(--ochre); color:#f2d9bc;}
+
+  @media (max-width:720px){
+    .field-rows{grid-template-columns:1fr;}
+    .field{border-right:none; border-bottom:1px solid rgba(238,241,236,0.18); padding:14px 0;}
+    .field:last-child{border-bottom:none;}
+    .skill-groups{grid-template-columns:1fr;}
+    .stamp{position:static; margin-bottom:24px; transform:rotate(-8deg);}
+    .timeline{padding-left:44px;}
+    .entry-num{left:-44px; width:30px; height:30px; font-size:11px;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">MELLY C. WARDANI</div>
+    <div class="nav-links">
+      <a href="#tentang">Tentang</a>
+      <a href="#keahlian">Keahlian</a>
+      <a href="#pengalaman">Pengalaman</a>
+      <a href="#pendidikan">Pendidikan</a>
+      <a href="#organisasi">Organisasi</a>
+    </div>
+  </div>
+</nav>
+
+<header class="doc">
+  <div class="doc-inner">
+    <div class="stamp"><span>MCW</span></div>
+    <span class="eyebrow">Profil &mdash; Fresh Graduate</span>
+    <h1 class="name">Melly Chandra Wardani, S.Kom.</h1>
+    <p class="role">Fresh graduate Teknik Informatika dengan pengalaman di administrasi perkantoran, pengelolaan data, dan dukungan sistem digital.</p>
+
+    <div class="field-rows">
+      <div class="field">
+        <span class="field-label">Lokasi</span>
+        <span class="field-value">Surabaya, Jawa Timur</span>
+      </div>
+      <div class="field">
+        <span class="field-label">Email</span>
+        <span class="field-value"><a href="mailto:chandrawardani0@gmail.com">chandrawardani0@gmail.com</a></span>
+      </div>
+      <div class="field">
+        <span class="field-label">Telepon / WhatsApp</span>
+        <span class="field-value"><a href="https://wa.me/6285852665836" target="_blank" rel="noopener">0858-5266-5836</a></span>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:chandrawardani0@gmail.com">Kirim Email</a>
+      <a class="btn btn-ghost" href="https://wa.me/6285852665836" target="_blank" rel="noopener">Hubungi via WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="tentang" class="reveal">
+    <div class="section-head">
+      <span class="section-tag">Tentang</span>
+      <h2 class="section-title">Ringkasan Profil</h2>
+    </div>
+    <p class="about-text">
+      <strong>Fresh graduate Teknik Informatika</strong> dari Universitas Trunojoyo Madura dengan pengalaman magang sebagai
+      <strong>Staf Administrasi</strong>. Terbiasa mengelola dokumen, melakukan input dan validasi data, serta menyusun
+      laporan kegiatan. Menggunakan Microsoft Excel, Microsoft Word, dan Google Workspace sehari-hari untuk mendukung
+      administrasi perkantoran, dengan tambahan pengalaman di pengolahan data dan pengembangan tampilan sistem berbasis web.
+    </p>
+  </section>
+
+  <section id="keahlian" class="reveal">
+    <div class="section-head">
+      <span class="section-tag">Keahlian</span>
+      <h2 class="section-title">Kompetensi Utama</h2>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Administrasi &amp; Perkantoran</h3>
+        <div class="chips">
+          <span class="chip">Microsoft Excel — Menengah</span>
+          <span class="chip">Microsoft Word — Menengah</span>
+          <span class="chip">Google Workspace</span>
+          <span class="chip">Input &amp; Validasi Data</span>
+          <span class="chip">Manajemen Dokumen Digital</span>
+          <span class="chip">Administrasi Perkantoran</span>
+          <span class="chip">Penyusunan Laporan</span>
+          <span class="chip">Koordinasi Tim</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Data &amp; Sistem</h3>
+        <div class="chips">
+          <span class="chip">Bizagi Studio</span>
+          <span class="chip">Looker Studio</span>
+          <span class="chip">Google BigQuery</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pengalaman" class="reveal">
+    <div class="section-head">
+      <span class="section-tag">Pengalaman</span>
+      <h2 class="section-title">Pengalaman Kerja</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="entry">
+        <div class="entry-num">01</div>
+        <div class="entry-card">
+          <div class="entry-top">
+            <div>
+              <div class="entry-role">Supervisor</div>
+              <div class="entry-org">Jotoast (F&amp;B: Toast, Rice Bowl, Coffee)</div>
+            </div>
+            <span class="entry-date mono">Sep 2025 — Mei 2026</span>
+          </div>
+          <ul class="entry-list">
+            <li>Mengawasi operasional harian outlet untuk memastikan kelancaran pelayanan dan pemenuhan target penjualan.</li>
+            <li>Memimpin dan mengoordinasikan tim staf dalam menjaga kualitas produk, kebersihan area kerja, dan standar pelayanan pelanggan.</li>
+            <li>Menangani kendala operasional secara sigap untuk menjaga kepuasan dan pengalaman pelanggan.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-num">02</div>
+        <div class="entry-card">
+          <div class="entry-top">
+            <div>
+              <div class="entry-role">Peneliti</div>
+              <div class="entry-org">MBKM Riset</div>
+            </div>
+            <span class="entry-date mono">Agu 2025 — Des 2025</span>
+          </div>
+          <ul class="entry-list">
+            <li>Terlibat aktif dalam proyek riset secara menyeluruh, mulai dari studi literatur dan pengumpulan data hingga penyusunan laporan akhir.</li>
+            <li>Mengembangkan sistem pendukung penelitian melalui proses pemrograman untuk mengolah dan menganalisis data riset.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-num">03</div>
+        <div class="entry-card">
+          <div class="entry-top">
+            <div>
+              <div class="entry-role">Staf Administrasi &amp; Web Developer</div>
+              <div class="entry-org">DISKOMINFO Kabupaten Lamongan</div>
+            </div>
+            <span class="entry-date mono">Jan 2025 — Feb 2025</span>
+          </div>
+          <ul class="entry-list">
+            <li>Mengelola dan memperbarui data harga komoditas pada aplikasi PAHALA (Panel Harga Komoditas Penjualan) secara berkala untuk menjaga akurasi dan validitas data.</li>
+            <li>Mengevaluasi performa dan tampilan website guna meningkatkan efektivitas penyampaian informasi harga komoditas kepada masyarakat.</li>
+            <li>Membantu perancangan tampilan website untuk sistem absensi, memastikan tampilan responsif dan informatif.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="pendidikan" class="reveal">
+    <div class="section-head">
+      <span class="section-tag">Pendidikan</span>
+      <h2 class="section-title">Riwayat Pendidikan</h2>
+    </div>
+    <div class="edu-card">
+      <div>
+        <div class="edu-degree">S1 Teknik Informatika</div>
+        <div class="edu-inst">Universitas Trunojoyo Madura</div>
+      </div>
+      <span class="edu-year mono">2022 — 2026</span>
+    </div>
+  </section>
+
+  <section id="organisasi" class="reveal">
+    <div class="section-head">
+      <span class="section-tag">Organisasi</span>
+      <h2 class="section-title">Pengalaman Organisasi</h2>
+    </div>
+    <div class="timeline">
+      <div class="entry">
+        <div class="entry-num">01</div>
+        <div class="entry-card">
+          <div class="entry-top">
+            <div>
+              <div class="entry-role">Wakil Ketua Umum</div>
+              <div class="entry-org">UKM-FT EECOM</div>
+            </div>
+            <span class="entry-date mono">Jan 2024 — Des 2024</span>
+          </div>
+          <ul class="entry-list">
+            <li>Mengoordinasikan dan mengawasi kinerja seluruh divisi/sie untuk memastikan setiap program kerja terlaksana sesuai target dan timeline yang ditetapkan.</li>
+            <li>Berperan aktif dalam merumuskan program kerja serta menyusun strategi organisasi guna mendukung perkembangan dan keberlanjutan UKM.</li>
+            <li>Mewakili ketua umum dalam rapat, forum, maupun kegiatan eksternal untuk menjaga hubungan baik dengan pihak internal maupun eksternal kampus.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-stamp">
+      <div class="mini-stamp">MCW</div>
+      <div>
+        <div class="footer-text">Melly Chandra Wardani, S.Kom. &middot; Surabaya</div>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:chandrawardani0@gmail.com">Email</a>
+      <a href="https://wa.me/6285852665836" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{threshold:0.12});
+  revealEls.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
